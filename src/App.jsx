@@ -81,7 +81,7 @@ function App() {
         <a className="brand" href="#home" aria-label="Начало">
           <span className="brand-mark">П</span>
           <span>
-            <strong>НЧ „Пробуда“</strong>
+            <strong>НЧ "Пробуда-1990"</strong>
             <small>култура, знание, общност</small>
           </span>
         </a>
@@ -115,7 +115,7 @@ function App() {
         <div className="hero-visual" aria-label="Сцена, книги и читалищна програма">
           <div className="poster">
             <img src={heroImg} alt="" />
-            <span>Пробуда</span>
+            <span>НЧ "Пробуда-1990г" гр.Пазарджик</span>
           </div>
           <div className="visual-note">
             <strong>Седмична програма</strong>
@@ -126,7 +126,7 @@ function App() {
 
       <section className="stats" aria-label="Кратка информация">
         <div>
-          <strong>1927</strong>
+          <strong>1990</strong>
           <span>година на основаване</span>
         </div>
         <div>
@@ -183,7 +183,7 @@ function App() {
           <h2>Културен център, който работи близо до хората.</h2>
         </div>
         <p>
-          НЧ „Пробуда“ развива местния културен живот чрез библиотечна дейност,
+          НЧ "Пробуда-1990г"развива местния културен живот чрез библиотечна дейност,
           любителско творчество и събития за всички поколения. Сайтът може да се
           разшири с галерия, новини, онлайн записване и административни страници.
         </p>
@@ -196,13 +196,13 @@ function App() {
         </div>
         <div className="contact-details">
           <p>
-            <strong>Адрес:</strong> ул. „Централна“ 1
+            <strong>Адрес:</strong> ул. „Бузлуджа“ 23
           </p>
           <p>
             <strong>Телефон:</strong> 0888 123 456
           </p>
           <p>
-            <strong>Имейл:</strong> info@probuda.bg
+            <strong>Имейл:</strong> chitalishteprobudapz@abv.bg
           </p>
         </div>
       </section>
