@@ -60,8 +60,7 @@ function DocumentsSection() {
           documents.map((document) => (
             <article className="document-item" key={document.id}>
               <div>
-                <h3>{document.title}</h3>
-                <p>{document.fileName}</p>
+                <p>ID на документа: <strong>{document.id}</strong></p>
               </div>
               <a href={document.url} target="_blank" rel="noreferrer">
                 Отвори PDF
