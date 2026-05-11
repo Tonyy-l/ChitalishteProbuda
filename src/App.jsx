@@ -1,10 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
-
 import { collection, getDocs, onSnapshot, orderBy, query, where } from 'firebase/firestore'
 import { getDownloadURL, listAll, ref } from 'firebase/storage'
 import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
 import {
   db,
   firebaseDatabaseId,
@@ -16,11 +13,6 @@ import {
   useStorageFallback,
   storage,
 } from './firebase'
-
-import { collection, onSnapshot, orderBy, query } from 'firebase/firestore'
-import heroImg from './assets/hero.png'
-import { db } from './firebase'
-
 import './App.css'
 
 const activities = [
@@ -28,12 +20,10 @@ const activities = [
     title: 'Библиотека',
     text: 'Книги за деца и възрастни, читателски срещи и тихо място за учене.',
   },
-
   {
     title: 'Школи и клубове',
     text: 'Народни танци, музика, театър, приложни изкуства и занимания след училище.',
   },
-
   {
     title: 'Събития',
     text: 'Празници, изложби, концерти и срещи, които събират хората в общността.',
@@ -46,9 +36,8 @@ const events = [
   ['7 юни', 'Лятна читалня', 'книги на открито и среща с автор'],
 ]
 
-
 const galleryItems = [
- {
+  {
     id: 1,
     image: "/Image.jpg",
     title: "Снимка 1",
@@ -76,7 +65,7 @@ function DocumentsSection() {
   const documentsCollection = useMemo(() => {
     if (!db) return null
     return collection(db, firestoreDocumentsPath)
-  }, [db, firestoreDocumentsPath])
+  }, [])
 
   useEffect(() => {
     if (!isFirebaseConfigured) {
@@ -192,10 +181,8 @@ function DocumentsSection() {
     <section className="documents-section" id="documents">
       <div className="section-heading">
         <p className="eyebrow">Публични документи на читалището</p>
-        
+        <h2>Публични документи на читалището</h2>
       </div>
-
-     
 
       {!isFirebaseConfigured ? (
         <p className="empty-documents">
@@ -209,9 +196,6 @@ function DocumentsSection() {
         <p className="empty-documents">Зареждане...</p>
       ) : null}
 
-    
-
-    
       <div className="document-list">
         {!isFirebaseConfigured || !db || error || isLoading ? null : documents.length === 0 ? (
           <>
@@ -241,50 +225,13 @@ function DocumentsSection() {
               <p className="empty-documents">Колекцията е празна.</p>
             )}
           </>
-
-function DocumentsSection() {
-  const [documents, setDocuments] = useState([])
-  const documentsCollection = useMemo(() => {
-    if (!db) return null
-    return collection(db, 'documents')
-  }, [])
-
-  useEffect(() => {
-    if (!documentsCollection) return undefined
-
-    const documentsQuery = query(documentsCollection, orderBy('createdAt', 'desc'))
-    return onSnapshot(documentsQuery, (snapshot) => {
-      setDocuments(
-        snapshot.docs.map((document) => ({
-          id: document.id,
-          ...document.data(),
-        })),
-      )
-    })
-  }, [documentsCollection])
-
-  return (
-    <section className="documents-section" id="documents">
-      <div className="section-heading">
-        <p className="eyebrow">Документи</p>
-        <h2>Публични документи на читалището</h2>
-      </div>
-
-      <div className="document-list">
-        {documents.length === 0 ? (
-          <p className="empty-documents">Няма публикувани документи.</p>
-
         ) : (
           documents.map((document) => (
             <article className="document-item" key={document.id}>
               <div>
-
                 <p>
                   <strong>{document.title || document.name || document.fileName || document.id}</strong>
                 </p>
-
-                <p>ID на документа: <strong>{document.id}</strong></p>
-
               </div>
               <a href={document.url} target="_blank" rel="noreferrer">
                 Отвори PDF
@@ -321,11 +268,7 @@ function App() {
       <section className="hero-section" id="home">
         <div className="hero-copy">
           <p className="eyebrow">Народно читалище</p>
-
-          <h1>„Пробуда - 1990г.“ пази традицията и отваря място за нови идеи.</h1>
-
-          <h1>„Пробуда“ пази традицията и отваря място за нови идеи.</h1>
-
+          <h1>„Пробуда - 1990г." пази традицията и отваря място за нови идеи.</h1>
           <p className="lead">
             Дом за книги, изкуство, сцена и срещи. Тук децата откриват първите
             си таланти, а възрастните намират жива културна общност.
@@ -344,11 +287,6 @@ function App() {
           <div className="poster">
             <img src={heroImg} alt="" />
             <span>НЧ "Пробуда-1990г" гр.Пазарджик</span>
-          </div>
-
-          <div className="visual-note">
-            <strong>Седмична програма</strong>
-            <p>школи, репетиции, срещи и празници</p>
           </div>
         </div>
       </section>
@@ -403,22 +341,21 @@ function App() {
           ))}
         </div>
       </section>
+
       <section className="section gallery-section" id="gallery">
         <div className="section-heading">
           <p className="eyebrow">Галерия</p>
           <h2>Моменти от живота на читалището</h2>
         </div>
 
-
         <div className="gallery-grid" aria-label="Галерия">
           {galleryItems.map((item) => (
-            <figure className="gallery-card" key={`${item.caption}-${item.src}`}>
-               <img
-        src={item.image}
-        alt={item.title}
-        loading="lazy"
-      />
-            
+            <figure className="gallery-card" key={`${item.id}-${item.title}`}>
+              <img
+                src={item.image}
+                alt={item.title}
+                loading="lazy"
+              />
             </figure>
           ))}
         </div>
@@ -445,7 +382,7 @@ function App() {
         </div>
         <div className="contact-details">
           <p>
-            <strong>Адрес:</strong> ул. „Бузлуджа“ 23
+            <strong>Адрес:</strong> ул. „Бузлуджа" 23
           </p>
           <p>
             <strong>Телефон:</strong> 0898604747
