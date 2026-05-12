@@ -382,7 +382,7 @@ function App() {
         </div>
         <div className="contact-details">
           <p>
-            <strong>Адрес:</strong> ул. „Бузлуджа" 23
+            <strong>Адрес:</strong> ул. „Бузлуджа" 23, гр. Пазарджик, България
           </p>
           <p>
             <strong>Телефон:</strong> 0898604747
