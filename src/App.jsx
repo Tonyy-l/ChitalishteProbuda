@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { collection, getDocs, onSnapshot, orderBy, query, where } from 'firebase/firestore'
 import { getDownloadURL, listAll, ref } from 'firebase/storage'
 import heroImg from './assets/hero.png'
+import logo from './assets/logo.jpg'
 import {
   db,
   firebaseDatabaseId,
@@ -21,19 +22,18 @@ const activities = [
     text: 'Книги за деца и възрастни, читателски срещи и тихо място за учене.',
   },
   {
-    title: 'Школи и клубове',
-    text: 'Народни танци, музика, театър, приложни изкуства и занимания след училище.',
+    title: 'Читателски клубове',
+    text: 'Работа с хора в неравностойно положение, екология, социален диалог и творчески работилници.',
   },
   {
     title: 'Събития',
-    text: 'Празници, изложби, концерти и срещи, които събират хората в общността.',
+    text: 'Празници, изложби и срещи, които събират хората в общността.',
   },
 ]
 
 const events = [
-  ['12 май', 'Работилница за деца', 'рисуване, приказки и игри'],
-  ['24 май', 'Празничен концерт', 'песни, слово и танцови състави'],
-  ['7 юни', 'Лятна читалня', 'книги на открито и среща с автор'],
+  ['Работилница за деца', 'рисуване, приказки и игри'],
+  ['Лятна читалня', 'книги на открито и среща с автор'],
 ]
 
 const galleryItems = [
@@ -248,10 +248,10 @@ function App() {
   return (
     <main>
       <header className="site-header" aria-label="Основна навигация">
-        <a className="brand" href="#home" aria-label="Начало">
-          <span className="brand-mark">П</span>
+        <a className="brand"  href="#home" aria-label="Начало">
+          <img src={logo} alt="Лого" />
           <span>
-            <strong>НЧ "Пробуда-1990"</strong>
+            <strong>НЧ "Пробуда-1990g."</strong>
             <small>култура, знание, общност</small>
           </span>
         </a>
@@ -297,19 +297,19 @@ function App() {
           <span>година на основаване</span>
         </div>
         <div>
-          <strong>12+</strong>
-          <span>активни школи и клубове</span>
+          <strong>Кръжоци</strong>
+          <span>Слово, Екология, Арт-работилничка "Майсторете ръчички за радост на всички". Клуб за социален диалог</span>
         </div>
         <div>
-          <strong>4 500+</strong>
-          <span>книги в библиотеката</span>
+          <strong>7 835</strong>
+          <span>библиотечен фонд</span>
         </div>
       </section>
 
       <section className="section" id="activities">
         <div className="section-heading">
           <p className="eyebrow">Дейности</p>
-          <h2>Място за учене, сцена и споделено време</h2>
+          <h2>Място за учене, творчество и споделено време</h2>
         </div>
         <div className="activity-grid">
           {activities.map((activity) => (
@@ -369,7 +369,7 @@ function App() {
           <h2>Културен център, който работи близо до хората.</h2>
         </div>
         <p>
-          НЧ "Пробуда-1990г" развива местния културен живот чрез библиотечна дейност,
+          НЧ "Пробуда-1990г." развива местния културен живот чрез библиотечна дейност,
           любителско творчество и събития за всички поколения. Сайтът може да се
           разшири с галерия, новини, онлайн записване и административни страници.
         </p>
