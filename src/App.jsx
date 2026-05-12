@@ -251,7 +251,7 @@ function App() {
         <a className="brand"  href="#home" aria-label="Начало">
           <img src={logo} alt="Лого" />
           <span>
-            <strong>НЧ "Пробуда-1990g."</strong>
+            <strong>НЧ "Пробуда-1990г."</strong>
             <small>култура, знание, общност</small>
           </span>
         </a>
